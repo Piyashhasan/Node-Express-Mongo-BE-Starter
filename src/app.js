@@ -7,7 +7,7 @@ import hpp from "hpp";
 import rateLimit from "express-rate-limit";
 import authRoute from "./routes/auth.routes.js";
 import globalLimiter from "./middlewares/rate.limiter.middleware.js";
-import errorMiddleware from "./middlewares/error.middleware.js";
+import globalErrorMiddleware from "./middlewares/global.error.middleware.js";
 import { sendResponse } from "./utils/ApiResponse.js";
 
 // --- Initialize app ---
@@ -54,7 +54,7 @@ app.use((req, res) => {
 });
 
 // -- Global Error Handler --
-app.use(errorMiddleware);
+app.use(globalErrorMiddleware);
 
 // -- export app --
 export default app;
