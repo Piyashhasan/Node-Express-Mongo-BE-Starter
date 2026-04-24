@@ -9,6 +9,7 @@ import authRoute from "./routes/auth.routes.js";
 import globalLimiter from "./middlewares/rate.limiter.middleware.js";
 import globalErrorMiddleware from "./middlewares/global.error.middleware.js";
 import { sendResponse } from "./utils/ApiResponse.js";
+import { config } from "./config.js";
 
 // --- Initialize app ---
 const app = express();
@@ -21,7 +22,7 @@ app.use(hpp());
 app.use(globalLimiter);
 app.use(
     cors({
-        origin: process.env.CLIENT_URL || process.env.CLIENT_LOCAL_URL,
+        origin: config.CLIENT_URL || config.CLIENT_LOCAL_URL,
         credentials: true,
     })
 );
