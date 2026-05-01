@@ -10,7 +10,7 @@ import { sendResponse } from "../utils/ApiResponse.js";
 
 export const signUpController = async (req, res, next) => {
     try {
-        return sendResponse(res, 200, "Sign Up work fine ...");
+        return sendResponse(res, 200, "Sign Up work fine ...", {});
     } catch (error) {
         next(error);
     }
@@ -25,7 +25,7 @@ export const signUpController = async (req, res, next) => {
 
 export const signiNController = async (req, res, next) => {
     try {
-        return sendResponse(res, 200, "Sign In work fine ...");
+        return sendResponse(res, 200, "Sign In work fine ...", {});
     } catch (error) {
         next(error);
     }

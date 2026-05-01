@@ -2,8 +2,7 @@ export const sendResponse = (
     res,
     statusCode = 200,
     message = "Success",
-    data,
-    pagination
+    { data, pagination, ...extras } = {}
 ) => {
     return res.status(statusCode).json({
         status: statusCode,
@@ -11,5 +10,6 @@ export const sendResponse = (
         message,
         ...(data !== undefined && { data }),
         ...(pagination !== undefined && { pagination }),
+        ...extras,
     });
 };
