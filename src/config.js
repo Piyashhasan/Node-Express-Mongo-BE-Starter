@@ -1,5 +1,24 @@
 import { DB_NAME } from "./constant.js";
 
+// -- process get properly or not check --
+const requiredEnvVars = [
+    "CLIENT_URL",
+    "CLIENT_LOCAL_URL",
+    "MONGO_DB_URI",
+    "DB_USER",
+    "DB_PASS",
+    "JWT_SECRET",
+];
+
+const missingEnvVars = requiredEnvVars.filter((envKey) => !process.env[envKey]);
+
+if (missingEnvVars.length > 0) {
+    throw new Error(
+        `Missing required environment variables: ${missingEnvVars.join(", ")}`
+    );
+}
+
+// -- export config file --
 export const config = {
     CLIENT_URL: process.env.CLIENT_URL,
     CLIENT_LOCAL_URL: process.env.CLIENT_LOCAL_URL,
