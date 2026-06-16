@@ -23,7 +23,7 @@ export const signUpController = async (req, res, next) => {
 // @error handle - throw new AppError("User already exists", 401);
 // @res handle   - return sendResponse(res, 404, "Routes Not Found ...!");
 
-export const signiNController = async (req, res, next) => {
+export const signInController = async (req, res, next) => {
     try {
         return sendResponse(res, 200, "Sign In work fine ...", {});
     } catch (error) {
